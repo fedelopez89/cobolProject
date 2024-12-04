@@ -28,10 +28,9 @@ def format_fixed_width(data, field_lengths, fillers, monetary_indices=[]):
     formatted = []
     for index, (value, length, filler) in enumerate(zip(data, field_lengths, fillers)):
         if index in monetary_indices:
-            # Special formatting for monetary fields
-            numeric_value = float(value)  # Convert to float
-            integer_part = int(numeric_value * 100)
-            formatted.append(str(integer_part).zfill(length))
+            monetary_value = f"{float(value):.2f}"
+            formatted_value = monetary_value.replace(".","").zfill(length)
+            formatted.append(formatted_value)
         else:
             # Default behavior for other fields
             if isinstance(value, int) or (isinstance(value, str) and value.isdigit()):
