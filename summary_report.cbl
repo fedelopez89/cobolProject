@@ -24,6 +24,7 @@
                                    FILE STATUS IS FS-TRANSACTION.
       * 
            SELECT REPORT-FILE      ASSIGN TO "report.csv"
+                                   ORGANIZATION IS LINE SEQUENTIAL
                                    FILE STATUS IS FS-REPORT.
       *             
       ******************************************************************
@@ -281,7 +282,7 @@
                                           REPORT-DEL3
                                           REPORT-DEL4
       *
-           WRITE REPORT-REC AFTER ADVANCING 1 LINE.
+           WRITE REPORT-REC.
       *
            IF FS-REPORT EQUAL ZEROS
                ADD 1                   TO WS-REPORT-RECORDS
