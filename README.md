@@ -109,7 +109,7 @@ The provided Python script exports data from the `CUSTOMER` and `TRANSACTIONS` t
 ### Overview
 The COBOL program processes the fixed-width files and generates a CSV report summarizing:
 1. Total transactions for each customer.
-2. Total revenue (sum of `AMOUNT` where `TRANSACTIONTYPE = 'Purchase'`).
+2. Total revenue (sum of `AMOUNT` independently of the `TRANSACTIONTYPE`).
 3. Total refunds (count of `TRANSACTIONTYPE = 'Refund'`).
 
 ### Compilation
@@ -174,6 +174,10 @@ Run the program:
 ## **Testing and Validation**
 1. Validate the input files (`customer_data.txt` and `transaction_data.txt`) for correct formatting.
 2. Verify the CSV report against the raw data to ensure accuracy.
+3. There is a test script file in the /test folder to be executed in order to validate the process batch.
+```bash
+python3 tests/test_script.py
+```
 
 ---
 
